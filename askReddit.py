@@ -1,4 +1,5 @@
 import praw
+#go to preferences, project interpreter and search 'praw' to install to pycharm
 
 
 #TODO
@@ -8,6 +9,7 @@ reddit=praw.reddit(args)
 reddit.read_only=True
 
 #TODO define reddit instance
+askReddit = reddit.subreddit('AskReddit')
 #TODO read all submissions into a database
 #TODO read all comments into a relational database
 #use MONGO DB?

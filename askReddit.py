@@ -3,33 +3,41 @@ HackPrinceton2019"""""""""
 
 #go to preferences, project interpreter and search 'praw' to install to pycharm
 import praw
-#use csv files for relational sumbissions->comments databases
-import csv
 
 
 #creates an instance of reddit
-reddit=praw.reddit(user_agent='Sentiment analysis by Connor Jackson, Chris Sequeira')
+reddit=praw.Reddit(user_agent='Sentiment analysis by Connor Jackson, Chris Sequeira', client_id='OPbpwRMkKTA1VA', client_secret="0CjJ_J3DrkyPUk3O2V2fE1dfJII", )
 #enable read only mode
 reddit.read_only=True
 #define reddit instance
 askReddit = reddit.subreddit('AskReddit')
 
+#may be unnecessary
+#__init__(site_name=None, requestor_class=None, requestor_kwargs=None, **config_settings)
+
 """make a dictionary
+with a list format
+for values
 keys = submissions
 values = comments"""
 posts = {}
+key=""
+posts.setdefault(key, [])
 
 #TODO narrow by time
 #writes all submissions to a dictionary
-for submission in askReddit.submissions.topAllTime():
-    posts[submission]
+for post in askReddit.submission.topAllTime():
+    posts[post]
     #writes each cubmission's comments
-    #TODO fix
-    for commentsCSV in submission:
-        #add comments to new list every time
-        #connect list to key
-        posts[submission].add(comment)
+    for top_level_comment in post.comments:
+        #appends comments to the list of values
+        posts[post].append(top_level_comment.body)
 
 
+def main():
+    for content in posts.items():
+        print(content)
+
+    return 0
 
 

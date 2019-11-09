@@ -3,6 +3,7 @@ HackPrinceton2019"""""""""
 
 #go to preferences, project interpreter and search 'praw' to install to pycharm
 import praw
+import gcp
 
 
 #creates an instance of reddit
@@ -33,6 +34,10 @@ for post in askReddit.submission.topAllTime():
         #appends comments to the list of values
         posts[post].append(top_level_comment.body)
 
+def gather_sentiment(posts):
+    for i in posts.keys():
+        for j in posts[i]:
+            gcp.gather_sentiment(j)
 
 def main():
     for content in posts.items():

@@ -9,9 +9,9 @@ import os
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "C:\\Users\\Connor\\PycharmProjects\\Subreddit_Analitics-9c6cd7fe0223.json"
 
 
-def main():
+def gather_sentiment(text):
     client = language.Client()
-    document = client.document_from_text("Now THIS is pod racing!")
+    document = client.document_from_text(text)
 
     """
     Queries sentiment and sentiment magnitude. The sentiment is scored between -1 and +1, and the sentiment magnitude is
@@ -34,6 +34,10 @@ def main():
     # There is more data within the entities, but this is some of it
     for i in entities:
         print(i.name, ":", i.entity_type)
+
+
+def main():
+    gather_sentiment("This is tester text!")
 
 
 if __name__ == "__main__":

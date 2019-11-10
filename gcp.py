@@ -31,12 +31,6 @@ def gather_sentiment(text):
 
     return sentiment.score, sentiment.magnitude
 
-    # print("Sentiment score for text is: ", sentiment.score, " and magnitude is: ", sentiment.magnitude)
-
-    # There is more data within the entities, but this is some of it
-    # for i in entities:
-    #    print(i.name, ":", i.entity_type)
-
 
 def main():
     gather_sentiment("This is a sample statement.")

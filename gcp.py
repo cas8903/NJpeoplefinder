@@ -37,7 +37,7 @@ def gather_sentiment(text):
 
 
 def main():
-    gather_sentiment("This is tester text!")
+    gather_sentiment("This is a sample statement.")
 
 
 if __name__ == "__main__":

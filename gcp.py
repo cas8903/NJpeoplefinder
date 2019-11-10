@@ -29,11 +29,13 @@ def gather_sentiment(text):
     dir(ent_analysis)
     entities = ent_analysis.entities
 
-    print("Sentiment score for text is: ", sentiment.score, " and magnitude is: ", sentiment.magnitude)
+    return sentiment.score, sentiment.magnitude
+
+    # print("Sentiment score for text is: ", sentiment.score, " and magnitude is: ", sentiment.magnitude)
 
     # There is more data within the entities, but this is some of it
-    for i in entities:
-        print(i.name, ":", i.entity_type)
+    # for i in entities:
+    #    print(i.name, ":", i.entity_type)
 
 
 def main():

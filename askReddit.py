@@ -32,8 +32,22 @@ def buildContent(submission):
 
 """Passes content to google for analysis"""
 def gather_sentiment(comments):
+    AllScores = []
+    AllMags = []
+    AvgScore = 0
+    AvgMag = 0
     for comment in comments:
-        gcp.gather_sentiment(comment)
+        score, mag = gcp.gather_sentiment(comment)
+        AllScores.append(score)
+        AllMags.append(mag)
+    for i in AllScores:
+        AvgScore += i
+    AvgScore = AvgScore / len(AllScores)
+    for j in AllMags:
+        AvgMag += j
+    AvgMag = AvgMag / len(AllMags)
+    print("The average sentiment score of this post's comments is: ", AvgScore, "\n With an average magnitude of: ", AvgMag)
+
 
 
 def main():

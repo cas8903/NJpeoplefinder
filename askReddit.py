@@ -14,8 +14,19 @@ reddit.read_only=True
 """make a list format for values, submissions and comments"""
 comments=[]
 
-"""builds post from reddit link"""
-def parseID(postid):
+#strips postID from full reddit link
+def parseID(link):
+    slashes=0
+    for i in range(len(link)):
+        if link[i] == "/":
+            slashes+=1
+        if slashes ==6:
+            print(link[i+1:i+7])
+            return link[i+1:i+7]
+
+
+"""builds post from postID"""
+def makePost(postid):
     submission = reddit.submission(id=postid)
     print("Title: ",submission.title)
     return submission
@@ -37,8 +48,9 @@ def gather_sentiment(comments):
 
 
 def main():
-    postid = input("Enter a reddit postID to evaluate sentiment: ")
-    comments=buildContent(parseID(postid))
+    link = input("Enter a reddit link to evaluate sentiment \nwith a space at the end: ")
+    link=link.strip()
+    comments=buildContent(makePost(parseID(link)))
     gather_sentiment(comments)
 
     return 0

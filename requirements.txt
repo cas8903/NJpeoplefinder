@@ -3,7 +3,7 @@ google-auth==1.7.0
 google-auth-httplib2==0.0.3
 google-cloud-natural-language==0.24.0
 googleapis-common-protos==1.6.0
-httplib2==0.14.0
+httplib2==0.18.0
 praw==6.4.0
 protobuf==3.10.0
 pyasn1==0.4.7
